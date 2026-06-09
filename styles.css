@@ -239,11 +239,9 @@ a {
   object-fit: cover;
   object-position: center top;
   filter:
-    grayscale(1)
     contrast(1.1)
     blur(0.35px);
   opacity: 0.82;
-  mix-blend-mode: luminosity;
   transform: translateZ(2rem) scale(1.03);
   transition:
     transform 180ms ease,
@@ -253,7 +251,6 @@ a {
 
 .portrait-card:hover .hero-portrait {
   filter:
-    grayscale(0.25)
     contrast(1.08)
     blur(0.1px);
   opacity: 0.95;
@@ -292,15 +289,17 @@ a {
 }
 
 .project-grid {
+  width: min(100%, 1180px);
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: minmax(18rem, auto);
-  gap: 1rem;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .project-card {
   display: flex;
-  min-height: 28rem;
+  grid-column: span 2;
+  min-height: 34rem;
   flex-direction: column;
   overflow: hidden;
   background: var(--paper);
@@ -308,7 +307,7 @@ a {
 }
 
 .project-card.large {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 
 .project-card.tall {
@@ -316,12 +315,12 @@ a {
 }
 
 .compact-card {
-  min-height: 22rem;
+  min-height: 34rem;
 }
 
 .compact-media {
-  min-height: 13rem;
-  max-height: 22rem;
+  min-height: clamp(18rem, 28vw, 26rem);
+  max-height: none;
 }
 
 .dark-card {
@@ -341,7 +340,7 @@ a {
 .project-media {
   position: relative;
   flex: 1;
-  min-height: 18rem;
+  min-height: clamp(18rem, 28vw, 26rem);
   overflow: hidden;
 }
 
@@ -514,7 +513,7 @@ a {
 }
 
 .hubo-media {
-  min-height: clamp(18rem, 34vw, 31rem);
+  min-height: clamp(18rem, 28vw, 26rem);
   display: grid;
   place-items: center;
   padding: clamp(0.75rem, 2vw, 1.25rem);
@@ -582,11 +581,60 @@ a {
 }
 
 .wpl2-teaser .project-media {
-  min-height: 16rem;
+  min-height: clamp(18rem, 28vw, 26rem);
+}
+
+.wpl2-teaser {
+  order: 3;
+}
+
+.wpl2-logo-media {
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background:
+    radial-gradient(circle at 20% 18%, rgba(203, 248, 123, 0.28), transparent 12rem),
+    radial-gradient(circle at 82% 72%, rgba(100, 211, 189, 0.24), transparent 12rem),
+    #f4f2e8;
+}
+
+.wpl2-logo-media img {
+  width: min(82%, 18rem);
+  height: auto;
+  filter: drop-shadow(0 1rem 2rem rgba(0, 0, 0, 0.16));
 }
 
 .wpl2-teaser .inline-link {
   color: var(--acid);
+}
+
+.jefos-card {
+  order: 4;
+  background: #0e1114;
+  color: var(--paper);
+}
+
+.climate-card {
+  order: 5;
+}
+
+.jefos-media {
+  min-height: clamp(32rem, 48vw, 43rem);
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background:
+    radial-gradient(circle at 28% 10%, rgba(91, 182, 255, 0.45), transparent 16rem),
+    radial-gradient(circle at 78% 52%, rgba(255, 42, 42, 0.34), transparent 16rem),
+    radial-gradient(circle at 56% 72%, rgba(255, 186, 20, 0.38), transparent 14rem),
+    #111;
+}
+
+.jefos-preview-image {
+  width: min(100%, 24rem);
+  max-height: 42rem;
+  object-fit: contain;
+  filter: drop-shadow(0 2rem 3rem rgba(0, 0, 0, 0.54));
 }
 
 .inline-link {
@@ -906,6 +954,12 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .project-card,
+  .project-card.large,
+  .hubo-card {
+    grid-column: span 1;
+  }
+
   .case-grid,
   .resource-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -937,8 +991,10 @@ a {
 
   .project-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
+  .project-card,
   .project-card.large {
     grid-column: span 1;
   }
