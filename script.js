@@ -57,19 +57,36 @@ const form = document.querySelector("#contactForm");
 const formMessage = document.querySelector("#form-message");
 
 if (form && formMessage) {
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(form);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
-    const subject = encodeURIComponent(`Portfolio contact - ${name}`);
-    const body = encodeURIComponent(
-      `Naam: ${name}\nE-mail: ${email}\n\nBericht:\n${message}`,
-    );
+    const submitButton = form.querySelector("button[type='submit']");
 
-    window.location.href = `mailto:curvers.jef@gmail.com?subject=${subject}&body=${body}`;
-    formMessage.textContent = "Je mailprogramma wordt geopend met je bericht.";
+    formMessage.textContent = "Sending...";
+    submitButton.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Form submission failed.");
+      }
+
+      form.reset();
+      formMessage.textContent = "Message sent. I will get back to you soon.";
+    } catch (error) {
+      formMessage.textContent = "Something went wrong. Please try again or email me directly.";
+    } finally {
+      submitButton.disabled = false;
+    }
   });
 }

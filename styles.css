@@ -1,12 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Space+Grotesk:wght@700&display=swap");
+
 :root {
-  --ink: #10100f;
-  --paper: #efede3;
-  --fog: #cfd7ce;
-  --ash: #302f2c;
-  --electric: #245bdb;
-  --acid: #e5d02f;
+  --ink: #0b0b0a;
+  --paper: #f6f5ef;
+  --fog: #d9ddd5;
+  --ash: #20201e;
+  --curv-green: #6af268;
+  --electric: #6af268;
+  --acid: #6af268;
   --orange: #ff7a2d;
-  --muted: #a5a397;
+  --muted: #a6a69e;
+  --display-font: "Circular Std", "Space Grotesk", Manrope, Inter, system-ui, sans-serif;
+  --body-font: "Manrope", Inter, system-ui, sans-serif;
 }
 
 * {
@@ -22,10 +27,11 @@ body {
   min-height: 100vh;
   color: var(--paper);
   background:
-    radial-gradient(circle at 18% 12%, rgba(36, 91, 219, 0.22), transparent 24rem),
-    radial-gradient(circle at 86% 6%, rgba(255, 122, 45, 0.16), transparent 18rem),
-    linear-gradient(135deg, #0b0b0b 0%, #1a1a18 52%, #090908 100%);
-  font-family: Inter, system-ui, sans-serif;
+    radial-gradient(circle at 16% 14%, rgba(106, 242, 104, 0.18), transparent 25rem),
+    radial-gradient(circle at 86% 8%, rgba(246, 245, 239, 0.08), transparent 18rem),
+    radial-gradient(circle at 70% 78%, rgba(106, 242, 104, 0.1), transparent 22rem),
+    linear-gradient(135deg, #090908 0%, #161615 52%, #050505 100%);
+  font-family: var(--body-font);
   overflow-x: hidden;
 }
 
@@ -70,7 +76,7 @@ a {
   pointer-events: none;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(239, 237, 227, 0.11);
+  background: rgba(106, 242, 104, 0.12);
   filter: blur(46px);
 }
 
@@ -93,9 +99,10 @@ a {
 .brand {
   display: grid;
   gap: 0.05rem;
-  font-family: "Space Grotesk", Inter, sans-serif;
+  color: var(--curv-green);
+  font-family: var(--display-font);
   font-size: 0.76rem;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.9;
 }
@@ -105,7 +112,7 @@ a {
   gap: clamp(0.9rem, 2.4vw, 2rem);
   color: rgba(239, 237, 227, 0.72);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -114,7 +121,7 @@ a {
 }
 
 .nav a:hover {
-  color: var(--paper);
+  color: var(--curv-green);
 }
 
 .section-band {
@@ -141,7 +148,7 @@ a {
 .eyebrow,
 .section-kicker {
   margin: 0 0 1rem;
-  color: rgba(239, 237, 227, 0.55);
+  color: var(--curv-green);
   font-size: 0.76rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -150,8 +157,9 @@ a {
 .hero h1 {
   margin: 0;
   max-width: 8.5ch;
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(4.4rem, 10vw, 8.8rem);
+  font-weight: 900;
   line-height: 0.82;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -169,10 +177,11 @@ a {
   justify-self: end;
   min-height: clamp(28rem, 62vh, 46rem);
   overflow: hidden;
-  border: 1px solid rgba(239, 237, 227, 0.14);
+  border: 1px solid rgba(106, 242, 104, 0.2);
   background:
-    linear-gradient(180deg, rgba(239, 237, 227, 0.1), transparent),
-    #242321;
+    radial-gradient(circle at 18% 18%, rgba(106, 242, 104, 0.16), transparent 13rem),
+    linear-gradient(180deg, rgba(246, 245, 239, 0.08), transparent),
+    #1d1d1b;
   box-shadow: 0 2rem 7rem rgba(0, 0, 0, 0.5);
 }
 
@@ -188,7 +197,7 @@ a {
   inset: auto 10% 11% 10%;
   height: 18%;
   filter: blur(10px);
-  border-color: rgba(36, 91, 219, 0.45);
+  border-color: rgba(106, 242, 104, 0.48);
 }
 
 .scanline {
@@ -214,8 +223,8 @@ a {
 }
 
 .portrait-card:hover {
-  border-color: rgba(239, 237, 227, 0.32);
-  box-shadow: 0 2rem 7rem rgba(0, 0, 0, 0.58), 0 0 3rem rgba(36, 91, 219, 0.18);
+  border-color: rgba(106, 242, 104, 0.54);
+  box-shadow: 0 2rem 7rem rgba(0, 0, 0, 0.58), 0 0 3rem rgba(106, 242, 104, 0.16);
 }
 
 .portrait-glow {
@@ -225,8 +234,8 @@ a {
   border-radius: 48% 52% 40% 60% / 42% 46% 54% 58%;
   background:
     radial-gradient(circle at 44% 25%, rgba(239, 237, 227, 0.32), transparent 21%),
-    radial-gradient(circle at 38% 58%, rgba(36, 91, 219, 0.26), transparent 33%),
-    radial-gradient(circle at 72% 68%, rgba(255, 122, 45, 0.22), transparent 30%);
+    radial-gradient(circle at 38% 58%, rgba(106, 242, 104, 0.26), transparent 33%),
+    radial-gradient(circle at 72% 68%, rgba(246, 245, 239, 0.16), transparent 30%);
   filter: blur(30px) contrast(1.2);
   mix-blend-mode: screen;
 }
@@ -266,8 +275,9 @@ a {
 .contact h2 {
   margin: 0;
   max-width: 980px;
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(2rem, 5vw, 5.2rem);
+  font-weight: 900;
   line-height: 0.96;
   letter-spacing: 0;
 }
@@ -282,8 +292,9 @@ a {
 
 .section-heading h2 {
   margin: 0;
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(2.8rem, 9vw, 8rem);
+  font-weight: 900;
   line-height: 0.8;
   text-transform: uppercase;
 }
@@ -304,6 +315,18 @@ a {
   overflow: hidden;
   background: var(--paper);
   color: var(--ink);
+  border: 1px solid rgba(106, 242, 104, 0.16);
+  box-shadow: 0 1.4rem 4rem rgba(0, 0, 0, 0.28);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.project-card:hover {
+  border-color: rgba(106, 242, 104, 0.58);
+  transform: translateY(-4px);
+  box-shadow: 0 1.8rem 5rem rgba(0, 0, 0, 0.36), 0 0 2rem rgba(106, 242, 104, 0.08);
 }
 
 .project-card.large {
@@ -324,12 +347,12 @@ a {
 }
 
 .dark-card {
-  background: #111;
+  background: #0e0e0d;
   color: var(--paper);
 }
 
 .yellow-card {
-  background: #171513;
+  background: #11120f;
   color: var(--acid);
 }
 
@@ -356,9 +379,9 @@ a {
 
 .media-blue {
   background:
-    radial-gradient(circle at 35% 33%, rgba(36, 91, 219, 0.95), transparent 18%),
-    radial-gradient(circle at 62% 58%, rgba(239, 237, 227, 0.8), transparent 17%),
-    #e9e8df;
+    radial-gradient(circle at 34% 34%, rgba(106, 242, 104, 0.9), transparent 18%),
+    radial-gradient(circle at 62% 58%, rgba(246, 245, 239, 0.8), transparent 17%),
+    #11110f;
   filter: contrast(1.08);
 }
 
@@ -388,7 +411,7 @@ a {
 
 .media-rays {
   background:
-    conic-gradient(from 220deg at 50% 100%, #0c0c0b 0 9deg, var(--acid) 9deg 18deg, #0c0c0b 18deg 27deg, var(--acid) 27deg 36deg, #0c0c0b 36deg 45deg, var(--acid) 45deg 54deg, #0c0c0b 54deg 63deg, var(--acid) 63deg 72deg, #0c0c0b 72deg 360deg);
+    conic-gradient(from 220deg at 50% 100%, #0c0c0b 0 9deg, var(--curv-green) 9deg 18deg, #0c0c0b 18deg 27deg, var(--curv-green) 27deg 36deg, #0c0c0b 36deg 45deg, var(--curv-green) 45deg 54deg, #0c0c0b 54deg 63deg, var(--curv-green) 63deg 72deg, #0c0c0b 72deg 360deg);
 }
 
 .media-portrait {
@@ -413,12 +436,12 @@ a {
 .media-type {
   display: grid;
   place-items: center;
-  background: #f47b32;
+  background: var(--curv-green);
 }
 
 .media-type span {
-  color: rgba(239, 237, 227, 0.6);
-  font-family: "Space Grotesk", Inter, sans-serif;
+  color: rgba(11, 11, 10, 0.7);
+  font-family: var(--display-font);
   font-size: clamp(8rem, 18vw, 15rem);
   font-weight: 900;
   line-height: 0.7;
@@ -450,8 +473,9 @@ a {
 
 .project-info h3 {
   margin-top: 0.35rem;
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(1.8rem, 3vw, 3.2rem);
+  font-weight: 850;
   line-height: 0.92;
   text-transform: uppercase;
 }
@@ -518,7 +542,7 @@ a {
   place-items: center;
   padding: clamp(0.75rem, 2vw, 1.25rem);
   background:
-    radial-gradient(circle at 18% 12%, rgba(36, 91, 219, 0.18), transparent 13rem),
+    radial-gradient(circle at 18% 12%, rgba(106, 242, 104, 0.26), transparent 13rem),
     linear-gradient(145deg, #d8d9d0, #f2eee3);
 }
 
@@ -577,7 +601,8 @@ a {
 
 .slider-dot.active {
   color: var(--ink);
-  background: var(--paper);
+  background: var(--curv-green);
+  border-color: var(--curv-green);
 }
 
 .wpl2-teaser .project-media {
@@ -593,8 +618,8 @@ a {
   place-items: center;
   padding: clamp(1.5rem, 3vw, 2.5rem);
   background:
-    radial-gradient(circle at 20% 18%, rgba(203, 248, 123, 0.28), transparent 12rem),
-    radial-gradient(circle at 82% 72%, rgba(100, 211, 189, 0.24), transparent 12rem),
+    radial-gradient(circle at 20% 18%, rgba(106, 242, 104, 0.28), transparent 12rem),
+    radial-gradient(circle at 82% 72%, rgba(246, 245, 239, 0.2), transparent 12rem),
     #f4f2e8;
 }
 
@@ -643,6 +668,7 @@ a {
   margin-top: 1rem;
   padding-bottom: 0.25rem;
   border-bottom: 2px solid currentColor;
+  color: var(--curv-green);
   font-size: 0.86rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -659,7 +685,7 @@ a {
   padding: clamp(1.3rem, 4vw, 3rem);
   color: var(--ink);
   background:
-    radial-gradient(circle at 88% 12%, rgba(36, 91, 219, 0.25), transparent 14rem),
+    radial-gradient(circle at 88% 12%, rgba(106, 242, 104, 0.24), transparent 14rem),
     var(--paper);
 }
 
@@ -694,8 +720,9 @@ a {
   padding: 0.9rem 0;
   border-bottom: 1px solid rgba(239, 237, 227, 0.13);
   color: rgba(239, 237, 227, 0.72);
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(1.4rem, 3vw, 2.6rem);
+  font-weight: 850;
   text-transform: uppercase;
 }
 
@@ -717,10 +744,11 @@ a {
   width: fit-content;
   margin-top: 2rem;
   padding-bottom: 0.35rem;
-  border-bottom: 2px solid var(--orange);
+  border-bottom: 2px solid var(--curv-green);
   color: var(--paper);
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(1.4rem, 3vw, 3rem);
+  font-weight: 850;
 }
 
 .case,
@@ -738,8 +766,9 @@ a {
 .case-hero h1 {
   max-width: 11ch;
   margin: 0;
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(4rem, 12vw, 11rem);
+  font-weight: 900;
   line-height: 0.82;
   text-transform: uppercase;
 }
@@ -763,15 +792,16 @@ a {
   padding: clamp(1.2rem, 3vw, 2.4rem);
   color: var(--ink);
   background:
-    radial-gradient(circle at 92% 0%, rgba(255, 122, 45, 0.38), transparent 15rem),
+    radial-gradient(circle at 92% 0%, rgba(106, 242, 104, 0.34), transparent 15rem),
     var(--paper);
 }
 
 .case-intro h3 {
   max-width: 980px;
   margin: 0;
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(2rem, 4.6vw, 4.6rem);
+  font-weight: 850;
   line-height: 0.96;
   letter-spacing: 0;
 }
@@ -785,15 +815,16 @@ a {
 .case-grid article {
   min-height: 22rem;
   padding: clamp(1rem, 2.5vw, 2rem);
-  border: 1px solid rgba(239, 237, 227, 0.13);
+  border: 1px solid rgba(106, 242, 104, 0.16);
   background: rgba(239, 237, 227, 0.06);
   backdrop-filter: blur(24px);
 }
 
 .case-grid h3 {
   margin: 0 0 1rem;
-  font-family: "Space Grotesk", Inter, sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(1.6rem, 3vw, 3rem);
+  font-weight: 850;
   line-height: 0.95;
   text-transform: uppercase;
 }
@@ -826,7 +857,7 @@ a {
 
 .resource-list a:hover {
   transform: translateY(-4px);
-  background: var(--acid);
+  background: var(--curv-green);
 }
 
 .visual-links {
@@ -848,7 +879,7 @@ a {
   align-items: stretch;
   padding: 0.75rem;
   background:
-    radial-gradient(circle at 86% 10%, rgba(36, 91, 219, 0.14), transparent 12rem),
+    radial-gradient(circle at 86% 10%, rgba(106, 242, 104, 0.18), transparent 12rem),
     var(--paper);
 }
 
@@ -881,6 +912,10 @@ a {
   text-align: left;
 }
 
+.contact-form .hidden {
+  display: none;
+}
+
 .contact-form label {
   color: rgba(239, 237, 227, 0.62);
   font-size: 0.76rem;
@@ -906,7 +941,8 @@ a {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--orange);
+  border-color: var(--curv-green);
+  box-shadow: 0 0 0 3px rgba(106, 242, 104, 0.08);
 }
 
 .contact-form button {
@@ -914,11 +950,24 @@ a {
   border: 0;
   padding: 0.9rem 1.25rem;
   color: var(--ink);
-  background: var(--paper);
+  background: var(--curv-green);
   font: inherit;
   font-weight: 900;
   text-transform: uppercase;
   cursor: pointer;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.contact-form button:hover {
+  background: var(--paper);
+  transform: translateY(-2px);
+}
+
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.62;
 }
 
 .form-message,
