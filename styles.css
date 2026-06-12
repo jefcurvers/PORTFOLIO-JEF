@@ -1097,6 +1097,10 @@ a {
     text-align: center;
   }
 
+  .about-panel {
+    text-align: left;
+  }
+
   .hero {
     gap: 2.5rem;
     min-height: auto;
