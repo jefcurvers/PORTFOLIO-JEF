@@ -1,38 +1,30 @@
 const root = document.documentElement;
+const pointerFine = window.matchMedia("(hover: hover) and (pointer: fine)");
+const hasTouchInput = window.matchMedia("(any-pointer: coarse)");
 
-window.addEventListener("pointermove", (event) => {
-  root.style.setProperty("--mouse-x", `${event.clientX}px`);
-  root.style.setProperty("--mouse-y", `${event.clientY}px`);
-});
+if (pointerFine.matches && !hasTouchInput.matches) {
+  window.addEventListener("pointermove", (event) => {
+    root.style.setProperty("--mouse-x", `${event.clientX}px`);
+    root.style.setProperty("--mouse-y", `${event.clientY}px`);
+  });
+}
 
-const cards = document.querySelectorAll(".project-card");
-const portraitCard = document.querySelector(".portrait-card");
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".nav");
 
-cards.forEach((card) => {
-  card.addEventListener("pointermove", (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
+if (menuToggle && nav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
 
-    card.style.transform = `perspective(900px) rotateX(${y * -4}deg) rotateY(${x * 4}deg)`;
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    document.body.classList.toggle("menu-open", !isOpen);
   });
 
-  card.addEventListener("pointerleave", () => {
-    card.style.transform = "";
-  });
-});
-
-if (portraitCard) {
-  portraitCard.addEventListener("pointermove", (event) => {
-    const rect = portraitCard.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-    portraitCard.style.transform = `perspective(900px) rotateX(${y * -5}deg) rotateY(${x * 5}deg)`;
-  });
-
-  portraitCard.addEventListener("pointerleave", () => {
-    portraitCard.style.transform = "";
+  nav.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLAnchorElement) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("menu-open");
+    }
   });
 }
 
