@@ -1000,7 +1000,7 @@ a {
 
   .menu-toggle {
     position: relative;
-    z-index: 12;
+    z-index: 60;
     width: 3.25rem;
     height: 3.25rem;
     display: grid;
@@ -1049,6 +1049,12 @@ a {
 
   .menu-toggle[aria-expanded="true"] span:nth-child(3) {
     transform: rotate(-42deg);
+  }
+
+  .menu-open .menu-toggle {
+    z-index: 60;
+    border-color: rgba(106, 242, 104, 0.86);
+    background: rgba(7, 7, 6, 0.92);
   }
 
   .nav {

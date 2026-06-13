@@ -17,12 +17,14 @@ if (menuToggle && nav) {
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
 
     menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
     document.body.classList.toggle("menu-open", !isOpen);
   });
 
   nav.addEventListener("click", (event) => {
     if (event.target instanceof HTMLAnchorElement) {
       menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
       document.body.classList.remove("menu-open");
     }
   });
